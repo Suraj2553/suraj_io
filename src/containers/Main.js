@@ -29,7 +29,7 @@ export default class Main extends Component {
 
   render() {
     return (
-      <BrowserRouter>
+      <BrowserRouter basename="/suraj_io">
         <Switch>
           {/* Home */}
           <Route
