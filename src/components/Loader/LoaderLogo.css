@@ -1,0 +1,11 @@
+.raw_logo {
+  width: 260px;
+  height: auto;
+}
+
+.logo-text {
+  font-size: 72px;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 4px;
+}

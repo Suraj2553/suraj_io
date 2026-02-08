@@ -1,0 +1,42 @@
+.education-main {
+  width: 100%;
+}
+.basic-education {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.education-heading-div {
+  display: flex;
+}
+
+.education-heading-div > * {
+  flex: 1;
+}
+.educations-header {
+  font-size: 40px;
+  line-height: 1.1;
+  font-family: "Google Sans Regular";
+  text-align: center;
+}
+
+@media (max-width: 1380px) {
+  .educations-header {
+    font-size: 35px;
+  }
+}
+
+@media (max-width: 768px) {
+  .educations-header {
+    font-size: 30px;
+  }
+}
+.educations-body-div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.education-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
