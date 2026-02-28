@@ -5,6 +5,7 @@
   "homepage": "https://suraj2553.github.io/suraj_io",
   "scripts": {
     "build": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts build",
+    "predeploy": "npm run build",
     "deploy": "set NODE_OPTIONS=--openssl-legacy-provider && gh-pages -d build",
     "eject": "react-scripts eject",
     "start": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",

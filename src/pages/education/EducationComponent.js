@@ -11,11 +11,13 @@ import jisLogo from "../../assets/images/jis_logo.png";
 import azureLogo from "../../assets/images/azure_logo.png";
 import kafkaLogo from "../../assets/images/kafka_logo.png";
 import genaiLogo from "../../assets/images/gen_ai_logo.png";
+import googlelogo from "../../assets/images/google.png";
 
 // Map logos to certification titles
 const certLogos = {
   "Microsoft Azure Fundamentals (AZ-900)": azureLogo,
   "Confluent Developer – Apache Kafka": kafkaLogo,
+  "Google AI Professional Certificate": googlelogo,
   "Gen AI E2 Certification": genaiLogo,
 };
 

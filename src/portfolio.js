@@ -24,7 +24,7 @@ const greeting = {
   nickname: "",
   subTitle:
     "Python Developer | Azure Engineer | Automation & Cloud Applications\n\n4+ years of experience building scalable automation tools, cloud-native solutions, and enterprise applications using Python and Microsoft Azure.",
-  resumeLink: "/resume/Suraj_Kumar_Jha.pdf",
+  resumeLink: "./resume/Suraj_Kumar_Jha.pdf",
   portfolio_repository: "https://github.com/Suraj2553/suraj_io",
   githubProfile: "https://github.com/Suraj2553",
 };
@@ -177,6 +177,14 @@ const certifications = {
       certificate_link: "",
       alt_name: "Confluent",
       color_code: "#231F20",
+    },
+    {
+      title: "Google AI Professional Certificate",
+      subtitle: "Google",
+      logo_path: "google.png",
+      certificate_link: "",
+      alt_name: "Google",
+      color_code: "#0078D4",
     },
     {
       title: "Gen AI E2 Certification",

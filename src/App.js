@@ -6,15 +6,16 @@ import { chosenTheme } from "./theme";
 import { GlobalStyles } from "./global";
 
 function App() {
-  // GitHub Pages SPA redirect handling
   useEffect(() => {
-    const { search, pathname } = window.location;
-
-    // Check if there's a redirect path in the URL (from 404.html)
-    if (search.includes("?/")) {
-      const cleanPath = search.replace("?/", "").replace(/~and~/g, "&");
-      const newUrl = pathname + cleanPath + window.location.hash;
-      window.history.replaceState(null, null, newUrl);
+    // Handle redirect from 404.html
+    const redirect = sessionStorage.redirect;
+    if (redirect) {
+      delete sessionStorage.redirect;
+      // Extract the path after /suraj_io/
+      const path = redirect.split("/suraj_io/")[1];
+      if (path && path !== "") {
+        window.history.replaceState(null, null, "/suraj_io/" + path);
+      }
     }
   }, []);
 
@@ -22,9 +23,7 @@ function App() {
     <ThemeProvider theme={chosenTheme}>
       <>
         <GlobalStyles />
-        <div>
-          <Main theme={chosenTheme} />
-        </div>
+        <Main theme={chosenTheme} />
       </>
     </ThemeProvider>
   );

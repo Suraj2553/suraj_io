@@ -146,6 +146,23 @@ function Experience(props) {
                               {tech}
                             </span>
                           ))}
+                          {/* Awards section */}
+                          {exp.awards && exp.awards.length > 0 && (
+                            <div className="experience-awards">
+                              {exp.awards.map((award, i) => (
+                                <div
+                                  key={i}
+                                  className="award-badge"
+                                  style={{
+                                    background: `${theme.accentColor}15`,
+                                    color: theme.accentColor,
+                                  }}
+                                >
+                                  🏆 {award}
+                                </div>
+                              ))}
+                            </div>
+                          )}
                         </div>
                       )}
                     </div>
