@@ -24,7 +24,7 @@ const greeting = {
   nickname: "",
   subTitle:
     "Python Developer | Azure Engineer | Automation & Cloud Applications\n\n4+ years of experience building scalable automation tools, cloud-native solutions, and enterprise applications using Python and Microsoft Azure.",
-  resumeLink: "./resume/Suraj_Kumar_Jha.pdf",
+  resumeLink: process.env.PUBLIC_URL + "/resume/Suraj_Kumar_Jha.pdf",
   portfolio_repository: "https://github.com/Suraj2553/suraj_io",
   githubProfile: "https://github.com/Suraj2553",
 };
