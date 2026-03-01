@@ -4,6 +4,7 @@
   width: 100%;
   padding: 20px 5%;
   box-sizing: border-box;
+  display: block !important;
 }
 
 .header ul {
@@ -68,7 +69,7 @@
 }
 
 .header .menu-icon .navicon {
-  background: #333;
+  background: currentColor;
   display: block;
   height: 2px;
   position: relative;
@@ -78,7 +79,7 @@
 
 .header .menu-icon .navicon:before,
 .header .menu-icon .navicon:after {
-  background: #333;
+  background: currentColor;
   content: "";
   display: block;
   height: 100%;
@@ -102,7 +103,8 @@
 }
 
 .header .menu-btn:checked ~ .menu {
-  max-height: 370px;
+  max-height: calc(100vh - 90px);
+  overflow-y: auto;
 }
 
 .header .menu-btn:checked ~ .menu-icon .navicon {
@@ -126,7 +128,7 @@
 
 @media (min-width: 69em) {
   .header {
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: space-between;
   }
