@@ -53,11 +53,11 @@ class Contact extends Component {
 
                 <div className="resume-btn-div">
                   <Button
-                    text="See My Resume"
-                    href="/resume/Suraj_Kumar_Jha.pdf"
-                    newTab={true}
-                    theme={theme}
-                  />
+  text="See My Resume"
+  href={process.env.PUBLIC_URL + "/resume/Suraj_Kumar_Jha.pdf"}
+  newTab={true}
+  theme={theme}
+/>
                 </div>
               </div>
             </div>
