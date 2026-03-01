@@ -4208,7 +4208,9 @@
                       { className: "resume-btn-div" },
                       n.a.createElement(P, {
                         text: "See My Resume",
-                        href: "/resume/Suraj_Kumar_Jha.pdf",
+                        href:
+                          process.env.PUBLIC_URL +
+                          "/resume/Suraj_Kumar_Jha.pdf",
                         newTab: !0,
                         theme: e,
                       })
