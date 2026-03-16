@@ -1,117 +1,211 @@
 .projects-main {
   width: 100%;
-  text-align: center;
+  min-height: 100vh;
 }
 
 .basic-projects {
-  margin-left: 5%;
-  margin-right: 5%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
 }
 
-.projects-heading-div {
-  display: flex;
-}
-
-.projects-heading-div > * {
-  flex: 1;
-}
-
-.projects-heading-img-div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.projects-heading-text-div {
+/* Header */
+.projects-header-section {
   text-align: center;
-}
-
-.projects-heading-img-div > * {
-  max-width: 100%;
-  height: auto;
+  margin-bottom: 50px;
 }
 
 .projects-heading-text {
-  font-size: 56px;
-  font-weight: 400;
-  font-family: "Google Sans Medium";
-  line-height: 1.1;
-  text-align: center;
-  margin-top: 80px;
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  letter-spacing: -1px;
 }
 
-.projects-heading-sub-text {
-  font-size: 30px;
-  font-family: "Google Sans Regular";
-  text-align: center;
-  margin-bottom: 10px;
+.projects-heading-underline {
+  height: 4px;
+  width: 80px;
+  margin: 0 auto 20px auto;
+  border-radius: 2px;
 }
 
-.projects-header-detail-text {
-  font-size: 20px;
-  line-height: 30px;
-  margin-top: 0px;
-  margin-left: 20px;
-  margin-right: 20px;
-  font-family: "Google Sans Medium";
-}
-.publications-heading-text-div {
-  text-align: center;
-  font-family: "Google Sans Regular";
-  margin-top: 70px;
+.projects-header-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
-.publications-heading-text {
-  font-size: 56px;
-  font-weight: 600;
+/* Cards grid */
+.projects-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 28px;
+  margin-bottom: 60px;
 }
-.repo-cards-div-main {
+
+/* Individual card */
+.project-card {
+  border-radius: 12px;
+  padding: 28px 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 1rem 1rem;
-  margin-left: 40px;
-  margin-right: 40px;
-  margin-top: 60px;
+  flex-direction: column;
+  gap: 16px;
 }
 
-@media (max-width: 1380px) {
-  .projects-heading-text {
-    font-size: 50px;
-    margin-top: 80px;
-  }
-  .projects-heading-sub-text {
-    font-size: 25px;
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.14) !important;
+}
+
+/* Top row: category + visibility */
+.project-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-category {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.3px;
+}
+
+.project-visibility {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.project-visibility.public {
+  background: rgba(34, 197, 94, 0.12);
+  color: #16a34a;
+}
+
+.project-visibility.private {
+  background: rgba(99, 102, 241, 0.12);
+  color: #6366f1;
+}
+
+/* Project name */
+.project-name {
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Description */
+.project-description {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0;
+  flex: 1;
+}
+
+/* Tags */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-tag {
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 14px;
+  transition: transform 0.2s ease;
+}
+
+.project-tag:hover {
+  transform: scale(1.05);
+}
+
+/* Card footer */
+.project-card-footer {
+  padding-top: 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  margin-top: auto;
+}
+
+.project-github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.project-github-link:hover {
+  opacity: 0.75;
+}
+
+.project-private-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  opacity: 0.65;
+}
+
+/* CTA section */
+.projects-github-cta {
+  text-align: center;
+  padding: 40px 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.projects-github-cta p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+.github-profile-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.github-profile-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .projects-cards-grid {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 768px) {
-  .projects-heading-text,
-  .publications-heading-text {
-    font-size: 30px;
-    margin-top: 20px;
+  .projects-heading-text {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .basic-projects {
+    padding: 20px 15px 40px;
   }
 
-  .projects-heading-sub-text {
-    font-size: 20px;
-  }
-
-  .projects-heading-div {
-    flex-direction: column;
-  }
-
-  .projects-header-detail-text {
-    font-size: 16px;
-    margin-right: 0px;
-    margin-left: 0px;
-    line-height: normal;
-    text-align: center;
-  }
-
-  .repo-cards-div-main {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 30px;
+  .project-card {
+    padding: 22px 20px;
   }
 }

@@ -3,6 +3,7 @@ import { Route, Switch, BrowserRouter } from "react-router-dom";
 import Home from "../pages/home/HomeComponent";
 import Education from "../pages/education/EducationComponent";
 import Experience from "../pages/experience/Experience";
+import Projects from "../pages/projects/Projects";
 import Contact from "../pages/contact/ContactComponent";
 import Error404 from "../pages/errors/error404/Error";
 
@@ -56,6 +57,12 @@ export default class Main extends Component {
             render={(props) => (
               <Education {...props} theme={this.props.theme} />
             )}
+          />
+
+          {/* Projects */}
+          <Route
+            path="/projects"
+            render={(props) => <Projects {...props} theme={this.props.theme} />}
           />
 
           {/* Contact */}

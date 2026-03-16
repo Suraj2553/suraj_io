@@ -7,11 +7,11 @@ const settings = {
 
 //SEO Related settings
 const seo = {
-  title: "Suraj Jha | Python & Azure Engineer",
+  title: "Suraj Kumar Jha | Python Developer & Azure Engineer",
   description:
-    "Python Developer and Azure Engineer with 4+ years of experience in automation, cloud-native applications, and enterprise systems. Specialized in Azure, Python, Cosmos DB, Durable Functions, and monitoring solutions.",
+    "Python Developer & Azure Engineer with 4+ years of production experience at TCS. Specialises in automation pipelines, Azure cloud-native systems, AI-powered tooling, and enterprise platforms. Available for Python automation and Azure consulting.",
   og: {
-    title: "Suraj Jha Portfolio",
+    title: "Suraj Kumar Jha | Python Developer & Azure Engineer",
     type: "website",
     url: "https://suraj2553.github.io/suraj_io",
   },
@@ -23,7 +23,7 @@ const greeting = {
   logo_name: "SurajJha",
   nickname: "",
   subTitle:
-    "Python Developer | Azure Engineer | Automation & Cloud Applications\n\n4+ years of experience building scalable automation tools, cloud-native solutions, and enterprise applications using Python and Microsoft Azure.",
+    "Python Developer · Azure Engineer · Automation & AI Tooling\n\nI build tools that eliminate manual work, scale on Azure, and ship as real products — from intelligent automation pipelines and event-driven cloud systems to AI-powered desktop applications. 4+ years of production experience at TCS.",
   resumeLink: process.env.PUBLIC_URL + "/resume/Suraj_Kumar_Jha.pdf",
   portfolio_repository: "https://github.com/Suraj2553/suraj_io",
   githubProfile: "https://github.com/Suraj2553",
@@ -62,11 +62,11 @@ const skills = {
       title: "Python Automation & Backend Engineering",
       fileName: "FullStackImg",
       skills: [
-        "⚡ Built production-grade Python automation tools for retail systems (Meijer) handling large-scale order, payment, and fulfillment workflows",
-        "⚡ Developed reusable Python libraries for logging, retries, exception handling, and configuration management",
-        "⚡ Created Windows desktop applications using Tkinter / PyQt to simplify operational and support workflows",
-        "⚡ Implemented long-running background processes with user prompts, progress tracking, and safe abort mechanisms",
-        "⚡ Designed REST-style backend utilities and internal APIs to support automation and data reconciliation",
+        "⚡ Shipped production Python automation that eliminated hours of daily manual processing across order, payment, and fulfillment workflows in large-scale retail operations",
+        "⚡ Built reusable Python libraries for structured logging, automatic retries, and configuration management — adopted across multiple production services",
+        "⚡ Delivered Windows desktop applications (Tkinter / PyQt) that let non-technical teams run complex workflows with a single click, no engineering help required",
+        "⚡ Engineered long-running background services with real-time progress tracking, safe abort, and auto-recovery — production-hardened and user-friendly",
+        "⚡ Designed internal REST APIs and service utilities for automation, data validation, and cross-system reconciliation",
       ],
       softwareSkills: [
         { skillName: "Python", fontAwesomeClassname: "ion-logo-python" },
@@ -84,11 +84,11 @@ const skills = {
       title: "Azure Cloud, Serverless & Event-Driven Systems",
       fileName: "CloudInfraImg",
       skills: [
-        "⚡ Designed and implemented cloud-native architectures using Azure Functions, Durable Functions, and Logic Apps",
-        "⚡ Built event-driven pipelines using Kafka consumers and Azure Service Bus for asynchronous processing",
-        "⚡ Worked extensively with Azure Cosmos DB for querying, filtering, and processing high-volume transactional data",
-        "⚡ Implemented monitoring and diagnostics using Application Insights and Kusto Query Language (KQL)",
-        "⚡ Optimized performance and reliability of distributed systems through retries, circuit breakers, and telemetry",
+        "⚡ Architected end-to-end cloud-native solutions on Azure using Durable Functions, Logic Apps, and orchestration patterns — built to handle millions of transactions reliably",
+        "⚡ Built high-throughput async pipelines with Apache Kafka and Azure Service Bus, decoupling producers and consumers for fault-tolerant, scalable processing",
+        "⚡ Queried and aggregated high-volume transactional data in Azure Cosmos DB using optimised filters, partition strategies, and continuation tokens",
+        "⚡ Implemented full observability across distributed systems using Application Insights and KQL — enabling rapid incident diagnosis and root-cause analysis without touching logs manually",
+        "⚡ Hardened distributed services with retry policies, dead-letter handling, and structured telemetry — measurably reducing production incidents and on-call burden",
       ],
       softwareSkills: [
         {
@@ -122,11 +122,11 @@ const skills = {
       title: "Enterprise Platforms, Monitoring & Operations",
       fileName: "DesignImg",
       skills: [
-        "⚡ Worked on SAP Hybris-based e-commerce platforms supporting large-scale retail operations",
-        "⚡ Managed CMS-driven content including static pages, category landing pages, and promotions",
-        "⚡ Performed production support, root-cause analysis, and issue resolution in high-traffic systems",
-        "⚡ Collaborated with cross-functional teams using Agile/Scrum methodologies",
-        "⚡ Created operational dashboards and reports using Power BI for business and technical stakeholders",
+        "⚡ Extended and maintained SAP Hybris e-commerce platforms powering high-volume retail storefronts — backend logic, platform config, and Backoffice administration",
+        "⚡ Built CMS-driven content pipelines for category pages, banners, and promotions — coordinating directly with business and content teams to hit go-live deadlines",
+        "⚡ Owned production support rotations: triaged, escalated, and resolved high-severity incidents within SLA in fast-moving, high-traffic environments",
+        "⚡ Contributed across the full Agile delivery cycle — backlog refinement, sprint planning, daily standups, stakeholder demos, and retrospectives",
+        "⚡ Delivered Power BI dashboards adopted by business teams to track KPIs, SLA compliance, and operational health metrics",
       ],
       softwareSkills: [
         { skillName: "SAP Hybris", fontAwesomeClassname: "simple-icons:sap" },
@@ -151,9 +151,9 @@ const degrees = {
       alt_name: "MAKAUT",
       duration: "2015 – 2019",
       descriptions: [
-        "⚡ Engineering graduate with strong analytical mindset and passion for technology",
-        "⚡ Successfully transitioned to IT, leveraging problem-solving and quick learning abilities",
-        "⚡ Continuous learner with proven track record of adapting to new technical challenges",
+        "⚡ Mechanical Engineering graduate who self-taught Python and cloud technologies, then built a full career in software engineering — proof that domain switching is possible with the right drive",
+        "⚡ The engineering mindset — systems thinking, root-cause analysis, and first-principles problem solving — directly informs how I approach software and automation challenges today",
+        "⚡ Continuously upskilling: Azure certifications, Kafka, and AI/ML tooling pursued and completed alongside a full-time engineering role",
       ],
       website_link: "https://www.jiscollege.ac.in/",
     },
@@ -217,12 +217,12 @@ const experience = {
           duration: "Jan 2025 – Present",
           location: "Bengaluru, Karnataka",
           descriptions: [
-            "Working as a Python and Azure engineer for Meijer retail systems, focused on automation and cloud-native solutions",
-            "Designed and implemented Python scripts to automate recurring support tasks including log analysis and data reconciliation",
-            "Built end-to-end automation pipelines integrating Azure Durable Functions, Kafka Consumer, and Cosmos DB",
-            "Developed Windows-based desktop applications using Python (Tkinter/PyQt) to simplify internal workflows",
-            "Integrated logging, exception handling, and auto-update mechanisms for robust production deployments",
-            "Led performance tuning initiatives resulting in significant reduction in system response time and improved user satisfaction",
+            "Lead Python and Azure engineer on a high-traffic retail automation program — designing and delivering tools used daily by operations and support teams",
+            "Built end-to-end automation pipelines integrating Azure Durable Functions, Kafka, and Cosmos DB — eliminating hours of daily manual processing and reducing error rates",
+            "Shipped Windows desktop applications (Tkinter / PyQt) that enabled non-technical teams to self-serve complex operational workflows without engineering involvement",
+            "Engineered a production Python toolkit with structured logging, automatic retries, graceful error handling, and a self-update mechanism — zero manual deployment needed",
+            "Drove performance tuning across services, achieving measurable reductions in processing latency and support ticket volume",
+            "Recognised with three internal awards including Udbhavani Winner — Best Process Improvement, for high-impact automation that changed how the team operates",
           ],
           technologies: [
             "Python",
@@ -248,12 +248,12 @@ const experience = {
           duration: "Oct 2020 – Dec 2024",
           location: "Bengaluru, Karnataka",
           descriptions: [
-            "Implemented Azure components including Cosmos DB, Kusto Query Language, App Insights, Durable Functions, Logic Apps, and Service Bus",
-            "Managed backend and frontend of Meijer e-commerce platforms using SAP Hybris, HAC, and Hybris Backoffice",
-            "Created static web pages, landing pages, and category landing pages using Content Management Systems",
-            "Utilized SQL and Azure Storage Explorer for efficient data handling, troubleshooting, and system reliability",
-            "Participated in Agile ceremonies including sprint planning, story writing, daily stand-ups, and retrospectives",
-            "Demonstrated new features to business teams, gathered feedback, and implemented continuous improvements",
+            "Designed and integrated core Azure services — Cosmos DB, Application Insights, Durable Functions, Logic Apps, and Service Bus — across a large-scale enterprise cloud platform",
+            "Maintained and extended a SAP Hybris e-commerce stack serving high-volume retail traffic, handling backend logic, storefront configuration, and Backoffice administration",
+            "Built CMS-managed landing pages and promotional content for high-traffic retail categories, working directly with business stakeholders to meet campaign deadlines",
+            "Used SQL and Azure Storage Explorer for data investigation, cross-system reconciliation, and issue resolution during production incidents",
+            "Contributed across the full Agile delivery cycle — backlog refinement, sprint planning, daily stand-ups, stakeholder demos, and retrospectives",
+            "Presented live feature demos to business stakeholders, translated feedback into actionable improvements, and drove iterative delivery",
           ],
           technologies: [
             "Java",
@@ -277,7 +277,7 @@ const contactPageData = {
     title: "Contact Me",
     profile_image_path: "animated_suraj.png",
     description:
-      "Feel free to reach out for opportunities, collaboration, or just a quick chat. I usually respond within 24 hours.",
+      "Open to full-time roles, freelance projects, and consulting work in Python automation, Azure engineering, and AI-powered tooling. If you have a problem that needs a reliable, well-engineered solution — let's talk. I typically respond within a few hours.",
   },
 
   addressSection: {
@@ -296,18 +296,53 @@ const contactPageData = {
   },
 };
 
+const projectsHeader = {
+  title: "Projects",
+  description:
+    "Side projects I build to solve real problems and push my skills beyond the day job — from live market data tools to AI-powered desktop applications that ship as standalone executables.",
+};
+
+const projects = {
+  data: [
+    {
+      name: "India Stock Dashboard",
+      description:
+        "A real-time dashboard tracking live NSE/BSE prices, indices, and sector trends. Built with Python for fast, at-a-glance market visibility — no paid data feeds, no clutter, just the numbers that matter.",
+      github: "https://github.com/Suraj2553/india-stock-dashboard",
+      tags: ["Python", "Stock Market", "Dashboard", "Real-time Data"],
+      category: "Data & Analytics",
+      isPublic: true,
+    },
+    {
+      name: "AppInsights Copilot",
+      description:
+        "AI-powered desktop tool that lets developers query Azure Application Insights in plain English — no KQL required. Packages an MCP server with 18 diagnostic tools (exceptions, performance, traces, availability, and more) into a zero-dependency Windows EXE. Features an agentic tool-calling loop, token-by-token streaming via SSE, system tray integration, and 200+ pre-built diagnostic prompts. Runs on any Windows machine — no Python, no Node.js, no installers.",
+      github: null,
+      tags: [
+        "Python",
+        "FastAPI",
+        "Azure",
+        "MCP",
+        "Application Insights",
+        "PyInstaller",
+        "GitHub Models",
+      ],
+      category: "AI & Developer Tools",
+      isPublic: false,
+    },
+  ],
+};
+
 export {
   settings,
   seo,
   greeting,
   socialMediaLinks,
   skills,
-  // competitiveSites,
   degrees,
   certifications,
   experience,
-  //projectsHeader,
-  //publicationsHeader,
-  //publications,
+  projectsHeader,
+  projects,
   contactPageData,
 };
