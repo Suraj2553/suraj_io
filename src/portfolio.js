@@ -307,9 +307,18 @@ const projects = {
     {
       name: "India Stock Dashboard",
       description:
-        "A real-time dashboard tracking live NSE/BSE prices, indices, and sector trends. Built with Python for fast, at-a-glance market visibility — no paid data feeds, no clutter, just the numbers that matter.",
+        "A self-hosted Indian stock market terminal built in Python. Tracks live portfolio P&L, NSE/BSE prices, candlestick charts, F&O option chains, sector heatmap, FII/DII flows, mutual funds, and live market news — all in one place. Includes an AI chat tab powered by GPT-4o (via GitHub Models) that can answer questions about your portfolio or any stock. Zero paid APIs, zero subscriptions. Runs locally so your data never leaves your machine.",
       github: "https://github.com/Suraj2553/india-stock-dashboard",
-      tags: ["Python", "Stock Market", "Dashboard", "Real-time Data"],
+      tags: [
+        "Python",
+        "FastAPI",
+        "NSE/BSE",
+        "F&O",
+        "AI Chat",
+        "GPT-4o",
+        "Vanilla JS",
+        "Self-hosted",
+      ],
       category: "Data & Analytics",
       isPublic: true,
     },
