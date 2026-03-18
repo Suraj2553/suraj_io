@@ -307,13 +307,15 @@ const projects = {
     {
       name: "India Stock Dashboard",
       description:
-        "A self-hosted Indian stock market terminal built in Python. Tracks live portfolio P&L, NSE/BSE prices, candlestick charts, F&O option chains, sector heatmap, FII/DII flows, mutual funds, and live market news — all in one place. Includes an AI chat tab powered by GPT-4o (via GitHub Models) that can answer questions about your portfolio or any stock. Zero paid APIs, zero subscriptions. Runs locally so your data never leaves your machine.",
+        "A self-hosted Indian stock market terminal built in Python — 9 tabs covering live portfolio P&L, candlestick charts, NSE screener, F&O option chains, sector heatmap, FII/DII flows, mutual funds, and live news. The Signal Scanner runs 15 institutional-grade technical indicators (RSI, MACD, Ichimoku, ADX, OBV, Bollinger Bands, Fibonacci, Parabolic SAR, Stochastic, SMA 20/50/200 + more) across Nifty 50, 100, Midcap, and sector lists — scoring each stock 0–100 with a Strong Buy to Strong Sell verdict and ATR-based price targets. AI chat powered by GPT-4o (GitHub Models) for portfolio analysis and stock research. Zero paid APIs. Runs locally — your data never leaves your machine.",
       github: "https://github.com/Suraj2553/india-stock-dashboard",
       tags: [
         "Python",
         "FastAPI",
         "NSE/BSE",
         "F&O",
+        "Signal Scanner",
+        "Technical Analysis",
         "AI Chat",
         "GPT-4o",
         "Vanilla JS",
