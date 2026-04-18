@@ -325,9 +325,9 @@ const projects = {
       isPublic: true,
     },
     {
-      name: "AppInsights MCP Server",
+      name: "DigiOpsMCP Server",
       description:
-        "A Python MCP (Model Context Protocol) server that connects VS Code Agent Mode and GitHub Copilot to Azure Application Insights — enabling natural language incident investigation without writing a single line of KQL. Orchestrates across two MCP servers: 57 custom diagnostic tools and 59 Azure MCP tools (116 total), covering exceptions, request failures, dependency analysis, anomaly detection, deployment correlation, browser telemetry, geographic error distribution, user impact, availability tests, and structured incident report generation. Features partial-match anomaly detection that compares live windows against 24h and 7d baselines. Also packaged as a zero-dependency Windows desktop EXE (PyInstaller) with a system tray, streaming AI chat via SSE, and 200+ pre-built diagnostic prompts — runs on any machine with no Python or Node.js required.",
+        "A local Python MCP server that connects VS Code Agent Mode and GitHub Copilot to Azure Application Insights and business operations data — enabling natural language incident investigation without writing KQL. Exposes 98 tools across two domains: 58 Azure AppInsights diagnostic tools (exceptions, requests, dependencies, anomaly detection, deployment correlation, browser telemetry, geo analysis, availability, alert investigation) and 40 business operations tools (order placement trends, fulfillment tracking, EBT order analysis, red light deep analysis, and scheduled Microsoft Teams reporting). Orchestrates alongside 4 additional MCP servers: Azure MCP, FullStory, Dynatrace, and an OrdersAgent — covering the full alert-to-RCA workflow. Includes a local Next.js observability dashboard (9 pages, auto-starts with the server) and Teams integration for posting metrics and incident reports on a schedule. Packaged as a zero-dependency Windows EXE for distribution across machines with no Python required.",
       github: null,
       tags: [
         "Python",
@@ -336,8 +336,11 @@ const projects = {
         "Azure Application Insights",
         "KQL",
         "VS Code Agent Mode",
+        "Next.js",
         "Anomaly Detection",
-        "PyInstaller",
+        "Teams Integration",
+        "Dynatrace",
+        "FullStory",
         "GitHub Copilot",
       ],
       category: "AI & Developer Tools",
