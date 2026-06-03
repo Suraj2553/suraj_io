@@ -1,3 +1,6 @@
+/* ══════════════════════════════
+   EXPERIENCE PAGE
+══════════════════════════════ */
 .experience-main {
   width: 100%;
   min-height: 100vh;
@@ -6,114 +9,155 @@
 .basic-experience {
   max-width: 900px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 48px 20px 72px;
 }
 
+/* ── Page header ── */
 .experience-header-section {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 56px;
 }
 
 .experience-heading-text {
-  font-size: 2.8rem;
-  font-weight: 700;
-  margin-bottom: 15px;
-  letter-spacing: -1px;
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  letter-spacing: -2px;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #001c55 0%, #0e6ba8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .experience-heading-underline {
   height: 4px;
-  width: 80px;
-  margin: 0 auto 20px auto;
-  border-radius: 2px;
+  width: 72px;
+  margin: 0 auto 22px auto;
+  border-radius: 4px;
 }
 
 .experience-header-subtitle {
-  font-size: 1.1rem;
-  opacity: 0.8;
+  font-size: 1.05rem;
+  font-weight: 500;
   max-width: 600px;
   margin: 0 auto;
+  line-height: 1.6;
 }
 
-/* Timeline container - shifted left */
+/* ── Timeline ── */
 .experience-timeline {
   display: flex;
   flex-direction: column;
-  gap: 50px;
-  padding-left: 10px; /* Shift everything left */
+  gap: 48px;
 }
 
-/* Each row - logo left, card right */
 .timeline-row {
   display: flex;
-  gap: 25px;
+  gap: 24px;
   align-items: flex-start;
 }
 
-/* Left side - logo and connector line */
+/* ── Left: Logo + connector ── */
 .timeline-left {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100px; /* Wider for larger logo */
+  width: 88px;
   flex-shrink: 0;
   position: relative;
 }
 
 .company-logo-container {
-  width: 80px; /* Larger logo */
-  height: 80px; /* Larger logo */
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   background: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(14, 107, 168, 0.15),
+    0 0 0 3px rgba(14, 107, 168, 0.1);
   overflow: hidden;
   z-index: 2;
-  border: 2px solid rgba(0, 0, 0, 0.05);
+  border: 2px solid rgba(14, 107, 168, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: pulseRing 3s infinite;
+}
+
+.company-logo-container:hover {
+  transform: scale(1.06);
+  box-shadow: 0 8px 28px rgba(14, 107, 168, 0.25),
+    0 0 0 4px rgba(14, 107, 168, 0.18);
 }
 
 .company-logo {
-  width: 50px; /* Larger logo image */
-  height: 50px;
+  width: 44px;
+  height: 44px;
   object-fit: contain;
 }
 
-/* Connector line between logos */
+/* Gradient connector line */
 .timeline-connector {
   position: absolute;
-  top: 85px; /* Start below the logo */
+  top: 78px;
   left: 50%;
   transform: translateX(-50%);
-  width: 2px;
-  height: calc(100% + 20px); /* Extend to next item */
-  opacity: 0.3;
+  width: 3px;
+  height: calc(100% + 28px);
+  background: linear-gradient(180deg, #0e6ba8, rgba(14, 107, 168, 0.15));
+  border-radius: 4px;
   z-index: 1;
 }
 
-/* Right side - experience card */
+/* ── Right: Card ── */
 .timeline-right {
   flex: 1;
-  max-width: calc(100% - 130px); /* Account for logo width + gap */
+  max-width: calc(100% - 116px);
 }
 
 .experience-card {
-  border-radius: 12px;
-  padding: 25px 30px;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  padding: 26px 30px;
+  border: 1px solid rgba(14, 107, 168, 0.1);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 24px rgba(14, 107, 168, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.55s ease, transform 0.55s ease, box-shadow 0.3s ease;
+}
+
+/* Gradient top accent bar */
+.experience-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #001c55, #0e6ba8, #a6e1fa);
+  background-size: 200% 100%;
+  animation: gradientBorder 4s ease infinite;
+}
+
+.experience-card-visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .experience-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 36px rgba(14, 107, 168, 0.13),
+    0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
+/* ── Card header ── */
 .experience-card-header {
-  margin-bottom: 15px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  margin-bottom: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(14, 107, 168, 0.08);
 }
 
 .experience-title-row {
@@ -121,134 +165,138 @@
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 8px;
+  gap: 12px;
 }
 
 .experience-title-row h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.45rem;
+  font-weight: 800;
   margin: 0;
+  letter-spacing: -0.3px;
 }
 
 .experience-date {
-  font-size: 0.95rem;
+  font-size: 0.82rem;
+  font-weight: 700;
   white-space: nowrap;
-  opacity: 0.8;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(14, 107, 168, 0.08);
+  flex-shrink: 0;
 }
 
 .experience-company {
-  font-size: 1.1rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 700;
   margin: 0 0 5px 0;
 }
 
 .experience-location {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 500;
   margin: 0;
-  opacity: 0.7;
 }
 
-/* Bullet points */
+/* ── Bullet points ── */
 .experience-descriptions {
   list-style: none;
   padding: 0;
-  margin: 15px 0;
+  margin: 4px 0 0 0;
 }
 
 .experience-descriptions li {
-  padding: 10px 0;
-  font-size: 0.95rem;
-  line-height: 1.6;
+  padding: 8px 0 8px 20px;
+  font-size: 0.94rem;
+  font-weight: 500;
+  line-height: 1.68;
   position: relative;
-  padding-left: 15px;
 }
 
 .experience-descriptions li::before {
-  content: "•";
+  content: "▸";
   position: absolute;
   left: 0;
-  color: inherit;
-  font-weight: bold;
+  font-size: 0.8rem;
+  color: #0e6ba8;
 }
 
-/* Technologies */
+/* ── Tech tags ── */
 .experience-technologies {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 15px;
-  padding-top: 15px;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(14, 107, 168, 0.07);
 }
 
 .tech-tag {
-  padding: 5px 12px;
-  border-radius: 15px;
-  font-size: 0.8rem;
-  font-weight: 500;
-  transition: all 0.2s ease;
+  padding: 5px 13px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: default;
 }
 
 .tech-tag:hover {
-  transform: scale(1.05);
+  transform: scale(1.06);
+  box-shadow: 0 3px 12px rgba(14, 107, 168, 0.18);
 }
 
-/* Animation */
-.experience-card {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
+/* ── Awards ── */
+.experience-awards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(14, 107, 168, 0.07);
 }
 
-.experience-card-visible {
-  opacity: 1;
-  transform: translateY(0);
+.award-badge {
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(14, 107, 168, 0.15);
 }
 
-/* Responsive */
+/* ── Responsive ── */
 @media (max-width: 768px) {
   .experience-heading-text {
     font-size: 2rem;
   }
-
-  .experience-timeline {
-    padding-left: 10px;
-  }
-
   .timeline-row {
-    gap: 15px;
+    gap: 14px;
   }
-
   .timeline-left {
-    width: 70px;
+    width: 64px;
   }
-
   .company-logo-container {
-    width: 60px;
-    height: 60px;
+    width: 52px;
+    height: 52px;
   }
-
   .company-logo {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
   }
-
   .timeline-connector {
-    top: 65px;
+    top: 58px;
   }
-
   .timeline-right {
-    max-width: calc(100% - 90px);
+    max-width: calc(100% - 82px);
   }
-
   .experience-title-row {
     flex-direction: column;
-    gap: 5px;
+    gap: 6px;
   }
-
   .experience-title-row h3 {
     font-size: 1.2rem;
   }
-
   .experience-card {
     padding: 20px;
   }
@@ -256,51 +304,24 @@
 
 @media (max-width: 480px) {
   .basic-experience {
-    padding: 20px 15px;
+    padding: 24px 14px 48px;
   }
-
-  .experience-timeline {
-    padding-left: 5px;
-  }
-
   .timeline-left {
-    width: 55px;
+    width: 52px;
   }
-
   .company-logo-container {
-    width: 45px;
-    height: 45px;
+    width: 44px;
+    height: 44px;
   }
-
   .company-logo {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
   }
-
   .timeline-connector {
     top: 50px;
-    width: 1px;
+    width: 2px;
   }
-
   .timeline-right {
-    max-width: calc(100% - 70px);
+    max-width: calc(100% - 66px);
   }
-}
-.experience-awards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 15px;
-  padding-top: 15px;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.award-badge {
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 6px;
 }

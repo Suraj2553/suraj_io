@@ -44,30 +44,70 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
 html,
 body {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
+
 body {
   margin: 0;
-  font: 19px / 23px Montserrat, "Montserrat", sans-serif;
+  font: 16px / 1.6 Montserrat, "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/* Media Query */
-@media (max-width: 1380px) {
-  html,
-  body {
-    font-size: 16px;
-    line-height: normal;
-  }
+
+/* ── Selection highlight ── */
+::selection {
+  background: rgba(14, 107, 168, 0.2);
 }
 
-:root {
-  --scrollbar-color: white; /* it will change when the page loads*/
+/* ── Focus ring ── */
+:focus-visible {
+  outline: 2px solid rgba(14, 107, 168, 0.6);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
+
+/* ── Smooth scrollbar ── */
+:root {
+  --scrollbar-color: rgba(0, 0, 0, 0.2);
+}
+
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--scrollbar-color) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-color);
+  border-radius: 10px;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 1380px) {
+  html,
+  body {
+    font-size: 15px;
+    line-height: normal;
+  }
 }

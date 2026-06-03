@@ -22,8 +22,9 @@ const greeting = {
   title: "Suraj Kumar Jha",
   logo_name: "SurajJha",
   nickname: "",
+  tagline: "Python Developer · Azure Engineer · Automation & AI Tooling",
   subTitle:
-    "Python Developer · Azure Engineer · Automation & AI Tooling\n\nI build tools that eliminate manual work, scale on Azure, and ship as real products — from intelligent automation pipelines and event-driven cloud systems to AI-powered desktop applications. 4+ years of production experience at TCS.",
+    "I build tools that eliminate manual work, scale on Azure, and ship as real products — from intelligent automation pipelines and event-driven cloud systems to AI-powered desktop applications. 4+ years of production experience at TCS.",
   resumeLink: process.env.PUBLIC_URL + "/resume/Suraj_Kumar_Jha.pdf",
   portfolio_repository: "https://github.com/Suraj2553/suraj_io",
   githubProfile: "https://github.com/Suraj2553",
@@ -304,6 +305,29 @@ const projectsHeader = {
 
 const projects = {
   data: [
+    {
+      name: "J.A.R.V.I.S — Personal AI for Windows",
+      description:
+        "A fully voice-activated personal AI assistant modelled after Iron Man's JARVIS — cinematic 380×380 HUD rendered at 60 fps, dual personas (JARVIS & Friday), 6-way LLM cascade (Groq → Gemini → NVIDIA NIM → OpenRouter → Ollama), 50+ callable tools, emotion-aware tone adaptation via voice pitch + webcam FER, autonomous multi-step research agent, meeting & interview mode, screen context via OCR every 60 s, cross-session SQLite memory, and a full-screen War Room dashboard with a live world map. Wake via voice, double-clap biometric detection, or Ctrl+Space. Zero audio sent to the cloud — local faster-whisper STT, sentence-streaming TTS through Chatterbox → Kokoro → ElevenLabs → SAPI5.",
+      github: "https://github.com/Suraj2553/Jarvis",
+      tags: [
+        "Python",
+        "PyQt6",
+        "Voice AI",
+        "LLM Routing",
+        "ElevenLabs",
+        "Groq",
+        "Gemini",
+        "Whisper",
+        "Autonomous Agent",
+        "Emotion AI",
+        "SQLite",
+        "Playwright",
+      ],
+      category: "AI & Desktop",
+      isPublic: true,
+      featured: true,
+    },
     {
       name: "India Stock Dashboard",
       description:

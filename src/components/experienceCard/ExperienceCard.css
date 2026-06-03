@@ -31,12 +31,13 @@
 }
 
 .experience-heading-text {
-  font-size: 56px;
-  font-weight: 400;
+  font-size: 3rem;
+  font-weight: 800;
   font-family: "Google Sans Medium";
   line-height: 1.1;
   text-align: center;
-  margin-top: 80px;
+  margin-top: 60px;
+  letter-spacing: -1.5px;
 }
 
 .experience-heading-sub-text {
@@ -89,16 +90,15 @@
 
 .experience-card {
   min-width: 275px;
-  /* height: 170px; */
   margin-bottom: 20px;
-  border-radius: 10px;
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 18px 20px;
   margin-left: 10px;
-  -webkit-box-shadow: 4px 3px 20px -2px grey;
-  -moz-box-shadow: 4px 3px 20px -2px grey;
-  box-shadow: 4px 3px 20px -2px grey;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07), 0 1px 4px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .arrow-left {
@@ -136,12 +136,13 @@
 }
 
 .experience-card-logo {
-  width: 100px;
-  height: 100px;
-  -webkit-box-shadow: 4px 3px 20px -2px grey;
-  -moz-box-shadow: 4px 3px 20px -2px grey;
-  box-shadow: 4px 3px 20px -2px grey;
-  border-radius: 50px;
+  width: 90px;
+  height: 90px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  object-fit: contain;
+  background: #fff;
+  padding: 6px;
 }
 
 .experience-card-title {

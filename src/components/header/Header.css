@@ -1,8 +1,19 @@
-/* header */
+/* ── Sticky outer wrapper (outside Fade so sticky is never clipped) ── */
+.header-sticky-outer {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.78);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease;
+}
 
+/* ── Header ── */
 .header {
   width: 100%;
-  padding: 20px 5%;
+  padding: 14px 5%;
   box-sizing: border-box;
   display: block !important;
 }
@@ -12,41 +23,63 @@
   padding: 0;
   list-style: none;
   overflow: hidden;
-  /* background-color: #fff; */
 }
+
 .grey-color {
   color: #868e96;
 }
 
 .header li a {
   display: block;
-  padding: 20px 20px;
-  /* color: black; */
+  padding: 10px 16px;
   text-decoration: none;
+  font-size: 0.93rem;
+  font-weight: 500;
+  position: relative;
+  transition: opacity 0.2s ease;
 }
 
-.header li a:hover,
-.header .menu-btn:hover {
-  /* background-color: #A6E1FA; */
+.header li a::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 16px;
+  right: 16px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header li a:hover::after,
+.header li a.active::after {
+  transform: scaleX(1);
+}
+
+.header li a:hover {
+  opacity: 0.75;
+  background-color: transparent !important;
 }
 
 .header .logo {
   display: block;
   float: left;
-  font-size: 1.5em;
+  font-size: 1.45em;
   text-decoration: none;
-  margin-top: 10px;
+  margin-top: 6px;
   line-height: normal;
+  letter-spacing: -0.5px;
 }
+
 .header .logo-name {
   font-family: "Agustina Regular";
   font-weight: bold;
-  padding: 0 10px;
-  /* color: #55198b; */
+  padding: 0 6px;
 }
 
-/* menu */
-
+/* ── menu ── */
 .menu {
   font-family: "Google Sans Regular";
 }
@@ -54,16 +87,15 @@
 .header .menu {
   clear: both;
   max-height: 0;
-  transition: max-height 0.2s ease-out;
+  transition: max-height 0.25s ease-out;
 }
 
-/* menu icon */
-
+/* ── menu icon ── */
 .header .menu-icon {
   cursor: pointer;
   display: inline-block;
   float: right;
-  padding: 28px 20px;
+  padding: 22px 16px;
   position: relative;
   user-select: none;
 }
@@ -91,19 +123,17 @@
 .header .menu-icon .navicon:before {
   top: 5px;
 }
-
 .header .menu-icon .navicon:after {
   top: -5px;
 }
 
-/* menu btn */
-
+/* ── menu btn ── */
 .header .menu-btn {
   display: none;
 }
 
 .header .menu-btn:checked ~ .menu {
-  max-height: calc(100vh - 90px);
+  max-height: calc(100vh - 80px);
   overflow-y: auto;
 }
 
@@ -124,8 +154,7 @@
   top: 0;
 }
 
-/* 69em = 1104px */
-
+/* ── desktop ── */
 @media (min-width: 69em) {
   .header {
     display: flex !important;
@@ -137,14 +166,21 @@
     display: flex;
     align-items: center;
     max-height: none;
-    clear: none; /* 🔥 KEY FIX */
+    clear: none;
   }
 
   .header li {
-    float: none; /* 🔥 REMOVE FLOAT */
+    float: none;
   }
 
   .header .menu-icon {
     display: none;
+  }
+}
+
+/* ── mobile menu open: opaque so nav links are legible ── */
+@media (max-width: 69em) {
+  .header .menu-btn:checked ~ .menu {
+    padding: 8px 0 16px;
   }
 }
