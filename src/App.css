@@ -1,4 +1,8 @@
-/* ── Global @keyframes ── */
+/* ══════════════════════════════════════════
+   GLOBAL @KEYFRAMES — referenced site-wide
+══════════════════════════════════════════ */
+
+/* ── Float (SVG illustrations) ── */
 @keyframes float {
   0%,
   100% {
@@ -9,6 +13,7 @@
   }
 }
 
+/* ── Blob morphing ── */
 @keyframes blobFloat {
   0%,
   100% {
@@ -35,6 +40,20 @@
   }
 }
 
+@keyframes blobFloat3 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  25% {
+    transform: translate(18px, -22px) scale(1.08) rotate(5deg);
+  }
+  75% {
+    transform: translate(-14px, 16px) scale(0.92) rotate(-3deg);
+  }
+}
+
+/* ── Gradient shift (backgrounds) ── */
 @keyframes gradientShift {
   0% {
     background-position: 0% 50%;
@@ -47,6 +66,18 @@
   }
 }
 
+/* ── Gradient border animation ── */
+@keyframes gradientBorder {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ── Shimmer slide ── */
 @keyframes shimmerSlide {
   0% {
     background-position: -200% center;
@@ -56,6 +87,7 @@
   }
 }
 
+/* ── Pulse rings ── */
 @keyframes pulseRing {
   0% {
     box-shadow: 0 0 0 0 rgba(14, 107, 168, 0.45);
@@ -80,6 +112,7 @@
   }
 }
 
+/* ── Entrance animations ── */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -102,6 +135,100 @@
   }
 }
 
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ── Caret blink (typewriter cursor) ── */
+@keyframes caretBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ── Scan line (JARVIS HUD effect) ── */
+@keyframes scanLine {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(800%);
+  }
+}
+
+/* ── Mesh pulse (hero grid bg) ── */
+@keyframes meshPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ── Orb float (large decorative orbs) ── */
+@keyframes orbFloat {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    filter: blur(60px);
+  }
+  33% {
+    transform: translate(-30px, -40px) scale(1.08);
+    filter: blur(72px);
+  }
+  66% {
+    transform: translate(36px, 22px) scale(0.92);
+    filter: blur(56px);
+  }
+}
+
+/* ── Glimmer shine (card hover) ── */
+@keyframes glimmer {
+  0% {
+    transform: translateX(-100%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(300%) skewX(-20deg);
+  }
+}
+
+/* ── Counter fade in ── */
+@keyframes counterReveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── Rotate slow ── */
 @keyframes rotateSlow {
   from {
     transform: rotate(0deg);
@@ -111,50 +238,33 @@
   }
 }
 
-@keyframes gradientBorder {
-  0%,
+/* ── Iridescent border rotation ── */
+@keyframes iridescent {
+  0% {
+    filter: hue-rotate(0deg);
+  }
   100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
+    filter: hue-rotate(360deg);
   }
 }
 
-/* ── Utility: gradient text ── */
-.gradient-text-blue {
-  background: linear-gradient(135deg, #001c55 0%, #0e6ba8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* ── Badge pop in ── */
+@keyframes badgePop {
+  0% {
+    transform: scale(0.7) translateY(8px);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.06) translateY(-2px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
 }
 
-/* ── Utility: shimmer chip ── */
-.shimmer-chip {
-  background: linear-gradient(
-    90deg,
-    rgba(14, 107, 168, 0.08) 25%,
-    rgba(14, 107, 168, 0.18) 50%,
-    rgba(14, 107, 168, 0.08) 75%
-  );
-  background-size: 200% 100%;
-  animation: shimmerSlide 2.4s infinite;
-}
-
-/* ── Legacy (keep for backwards compat) ── */
-.App {
-  text-align: center;
-}
-.App-link {
-  color: #09d3ac;
-}
-.heading {
-  color: black;
-}
-.subTitle {
-  color: #868e96;
-}
-
+/* ── Legacy (backwards compat) ── */
 @keyframes fade_down {
   0% {
     opacity: 0.01;
@@ -174,4 +284,76 @@
     opacity: 1;
     transform: translateY(0px);
   }
+}
+
+/* ══════════════════════════════
+   UTILITY CLASSES
+══════════════════════════════ */
+
+/* Gradient text */
+.gradient-text-blue {
+  background: linear-gradient(135deg, #001c55 0%, #0e6ba8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Shimmer chip */
+.shimmer-chip {
+  background: linear-gradient(
+    90deg,
+    rgba(14, 107, 168, 0.08) 25%,
+    rgba(14, 107, 168, 0.18) 50%,
+    rgba(14, 107, 168, 0.08) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmerSlide 2.4s infinite;
+}
+
+/* Glass panel */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(14, 107, 168, 0.12);
+  border-radius: 16px;
+}
+
+/* Card glimmer on hover — add overflow:hidden to parent */
+.glimmer-card {
+  position: relative;
+  overflow: hidden;
+}
+.glimmer-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%) skewX(-20deg);
+  pointer-events: none;
+}
+.glimmer-card:hover::after {
+  animation: glimmer 0.65s ease forwards;
+}
+
+/* ── Legacy app classes ── */
+.App {
+  text-align: center;
+}
+.App-link {
+  color: #09d3ac;
+}
+.heading {
+  color: black;
+}
+.subTitle {
+  color: #868e96;
 }

@@ -1,3 +1,6 @@
+/* ══════════════════════════════
+   FONT FACES (local assets)
+══════════════════════════════ */
 @font-face {
   font-family: "Agustina Regular";
   font-style: normal;
@@ -8,41 +11,103 @@
 @font-face {
   font-family: "Montserrat";
   src: local("Montserrat"),
-    url("./assets/fonts/Montserrat-Regular.ttf") format("woff");
+    url("./assets/fonts/Montserrat-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Google Sans Bold";
   src: local("Google Sans Bold"),
-    url("./assets/fonts/GoogleSans-Bold.ttf") format("woff");
+    url("./assets/fonts/GoogleSans-Bold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Google Sans Bold Italic";
   src: local("Google Sans Bold Italic"),
-    url("./assets/fonts/GoogleSans-BoldItalic.ttf") format("woff");
+    url("./assets/fonts/GoogleSans-BoldItalic.ttf") format("truetype");
 }
 @font-face {
   font-family: "Google Sans Italic";
   src: local("Google Sans Italic"),
-    url("./assets/fonts/GoogleSans-Italic.ttf") format("woff");
+    url("./assets/fonts/GoogleSans-Italic.ttf") format("truetype");
 }
 @font-face {
   font-family: "Google Sans Medium";
   src: local("Google Sans Medium"),
-    url("./assets/fonts/GoogleSans-Medium.ttf") format("woff");
+    url("./assets/fonts/GoogleSans-Medium.ttf") format("truetype");
 }
 @font-face {
   font-family: "Google Sans Medium Italic";
   src: local("Google Sans Medium Italic"),
-    url("./assets/fonts/GoogleSans-MediumItalic.ttf") format("woff");
+    url("./assets/fonts/GoogleSans-MediumItalic.ttf") format("truetype");
 }
 @font-face {
   font-family: "Google Sans Regular";
   src: local("Google Sans Regular"),
-    url("./assets/fonts/GoogleSans-Regular.ttf") format("woff");
+    url("./assets/fonts/GoogleSans-Regular.ttf") format("truetype");
 }
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+
+/* ══════════════════════════════
+   CSS CUSTOM PROPERTIES
+══════════════════════════════ */
+:root {
+  /* Colors */
+  --color-primary: #001c55;
+  --color-accent: #0e6ba8;
+  --color-highlight: #a6e1fa;
+  --color-bg: #edf9fe;
+
+  /* Typography */
+  --font-heading: "Space Grotesk", "Google Sans Bold", system-ui, sans-serif;
+  --font-body: "DM Sans", "Google Sans Regular", system-ui, sans-serif;
+  --font-mono: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+
+  /* Spacing scale */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-2xl: 64px;
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 26px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-card: 0 4px 24px rgba(14, 107, 168, 0.08),
+    0 1px 4px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 14px 44px rgba(14, 107, 168, 0.14),
+    0 4px 12px rgba(0, 0, 0, 0.06);
+
+  /* Glass */
+  --glass-bg: rgba(255, 255, 255, 0.82);
+  --glass-blur: blur(14px);
+  --glass-border: 1px solid rgba(14, 107, 168, 0.12);
+
+  /* Transitions */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 400ms;
+
+  /* Z-index scale */
+  --z-base: 1;
+  --z-card: 10;
+  --z-header: 100;
+  --z-modal: 200;
+
+  /* Scrollbar */
+  --scrollbar-color: rgba(14, 107, 168, 0.22);
+}
+
+/* ══════════════════════════════
+   BASE RESET
+══════════════════════════════ */
+code {
+  font-family: var(--font-mono);
 }
 
 html,
@@ -53,42 +118,37 @@ body {
 
 body {
   margin: 0;
-  font: 16px / 1.6 Montserrat, "Montserrat", sans-serif;
+  font: 16px / 1.7 var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /* ── Selection highlight ── */
 ::selection {
-  background: rgba(14, 107, 168, 0.2);
+  background: rgba(14, 107, 168, 0.18);
+  color: #001c55;
 }
 
 /* ── Focus ring ── */
 :focus-visible {
-  outline: 2px solid rgba(14, 107, 168, 0.6);
+  outline: 2px solid rgba(14, 107, 168, 0.65);
   outline-offset: 3px;
   border-radius: 4px;
 }
 
-/* ── Smooth scrollbar ── */
-:root {
-  --scrollbar-color: rgba(0, 0, 0, 0.2);
-}
-
+/* ── Slim scrollbar ── */
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--scrollbar-color) transparent;
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
-
 ::-webkit-scrollbar-track {
   background: transparent;
 }
-
 ::-webkit-scrollbar-thumb {
   background: var(--scrollbar-color);
   border-radius: 10px;
@@ -104,6 +164,7 @@ body {
   }
 }
 
+/* ── Smaller viewports ── */
 @media (max-width: 1380px) {
   html,
   body {

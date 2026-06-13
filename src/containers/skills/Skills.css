@@ -5,71 +5,89 @@
   display: flex;
   overflow: visible;
   align-items: center;
-  gap: 20px;
-  padding: 48px 32px;
+  gap: 28px;
+  padding: 52px 36px;
   border-radius: 24px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   position: relative;
-  transition: background 0.3s ease;
+  transition: background 0.35s ease, transform 0.3s ease;
+}
+
+.skills-main-div:hover {
+  background: rgba(14, 107, 168, 0.03) !important;
 }
 
 /* Alternating section tints */
 .skills-main-div:nth-child(odd) {
-  background: rgba(14, 107, 168, 0.03);
+  background: rgba(14, 107, 168, 0.025);
 }
 
 .skills-main-div:nth-child(even) {
   flex-direction: row-reverse;
-  background: rgba(0, 28, 85, 0.03);
+  background: rgba(0, 28, 85, 0.025);
 }
 
-/* Decorative corner accent */
-.skills-main-div::after {
+/* Animated left border accent */
+.skills-main-div::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 3px;
-  height: 56px;
+  height: 0;
   border-radius: 0 0 4px 4px;
-  background: linear-gradient(180deg, #0e6ba8, transparent);
+  background: linear-gradient(180deg, #0e6ba8, rgba(14, 107, 168, 0.1));
+  transition: height 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.skills-main-div:nth-child(even)::after {
+.skills-main-div:hover::before {
+  height: 100%;
+}
+
+.skills-main-div:nth-child(even)::before {
   left: auto;
   right: 0;
 }
 
+/* ── Page heading ── */
 .skills-header {
   font-size: 3rem;
-  line-height: 1.1;
-  font-family: "Google Sans Regular";
-  text-align: center;
+  line-height: 1.05;
+  font-family: "Space Grotesk", "Google Sans Regular", sans-serif;
   font-weight: 800;
-  letter-spacing: -2px;
+  text-align: center;
+  letter-spacing: -2.5px;
   background: linear-gradient(135deg, #001c55, #0e6ba8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
-
-/* Section title override for in-section headings */
-.skills-heading {
-  font-size: 1.8rem;
-  font-weight: 800;
-  font-family: "Google Sans Regular";
-  line-height: 1.2;
-  letter-spacing: -0.5px;
   margin-bottom: 4px;
 }
 
+/* ── Section heading ── */
+.skills-heading {
+  font-size: 1.85rem;
+  font-weight: 800;
+  font-family: "Space Grotesk", "Google Sans Regular", sans-serif;
+  line-height: 1.2;
+  letter-spacing: -0.6px;
+  margin-bottom: 4px;
+}
+
+/* ── Skill text bullets ── */
 .skills-text {
   font-size: 0.95rem;
   font-weight: 500;
-  line-height: 1.76;
+  font-family: "DM Sans", "Google Sans Regular", sans-serif;
+  line-height: 1.78;
   margin: 4px 0;
-  padding-left: 16px;
+  padding-left: 18px;
   position: relative;
+  transition: color 0.2s ease, padding-left 0.25s ease;
+}
+
+.skills-text:hover {
+  padding-left: 22px;
 }
 
 .skills-text::before {
@@ -78,33 +96,63 @@
   left: 0;
   font-size: 0.8rem;
   color: #0e6ba8;
+  transition: transform 0.2s ease;
+}
+
+.skills-text:hover::before {
+  transform: translateX(3px);
 }
 
 .skills-text-div {
-  margin-left: 32px;
-  font-family: "Google Sans Regular";
+  margin-left: 36px;
+  font-family: "DM Sans", "Google Sans Regular", sans-serif;
 }
 
+/* ── Flex children ── */
 .skills-main-div > * {
   flex: 1;
   margin-bottom: 0;
 }
 
+/* ── Image div ── */
 .skills-image-div {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .skills-image-div > * {
   max-width: 100%;
   height: auto;
-  filter: drop-shadow(0 16px 48px rgba(14, 107, 168, 0.18));
+  filter: drop-shadow(0 16px 52px rgba(14, 107, 168, 0.2));
   animation: float 6s ease-in-out infinite;
+  transition: filter 0.3s ease;
+}
+
+.skills-image-div:hover > * {
+  filter: drop-shadow(0 24px 64px rgba(14, 107, 168, 0.3));
 }
 
 .skills-main-div:nth-child(even) .skills-image-div > * {
   animation-delay: 1.5s;
+}
+
+/* Stagger entrance animation for skill sections */
+.skills-main-div:nth-child(1) {
+  animation: fadeInUp 0.6s ease 0.1s both;
+}
+.skills-main-div:nth-child(2) {
+  animation: fadeInUp 0.6s ease 0.2s both;
+}
+.skills-main-div:nth-child(3) {
+  animation: fadeInUp 0.6s ease 0.3s both;
+}
+.skills-main-div:nth-child(4) {
+  animation: fadeInUp 0.6s ease 0.4s both;
+}
+.skills-main-div:nth-child(5) {
+  animation: fadeInUp 0.6s ease 0.5s both;
 }
 
 /* ── Responsive ── */
@@ -123,13 +171,15 @@
     text-align: center;
   }
   .skills-header {
-    font-size: 1.8rem;
+    font-size: 1.85rem;
+    letter-spacing: -1.5px;
   }
   .skills-main-div {
     flex-direction: column !important;
-    padding: 32px 20px;
+    padding: 36px 20px;
+    margin-bottom: 8px;
   }
-  .skills-main-div::after {
+  .skills-main-div::before {
     display: none;
   }
   .skills-text-div {
