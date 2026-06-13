@@ -14,6 +14,7 @@
   margin: 0;
   position: relative;
   overflow: hidden;
+  /* Three.js canvas is absolute inside here */
 }
 
 .gretting-main {
@@ -22,79 +23,19 @@
   margin: 0 auto;
 }
 
-/* ── Animated mesh grid ── */
+/* ── Subtle mesh grid overlay (sits above WebGL, below content) ── */
 .hero-mesh {
   position: absolute;
   inset: 0;
   background-image: linear-gradient(
-      rgba(14, 107, 168, 0.035) 1px,
+      rgba(14, 107, 168, 0.03) 1px,
       transparent 1px
     ),
-    linear-gradient(90deg, rgba(14, 107, 168, 0.035) 1px, transparent 1px);
+    linear-gradient(90deg, rgba(14, 107, 168, 0.03) 1px, transparent 1px);
   background-size: 52px 52px;
   animation: meshPulse 9s ease-in-out infinite;
   pointer-events: none;
-  z-index: 0;
-}
-
-/* ── Animated blobs ── */
-.hero-blob {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.hero-blob-1 {
-  width: 580px;
-  height: 580px;
-  background: radial-gradient(
-    circle,
-    rgba(14, 107, 168, 0.14),
-    transparent 70%
-  );
-  top: -160px;
-  right: -100px;
-  filter: blur(56px);
-  animation: orbFloat 10s ease-in-out infinite;
-}
-
-.hero-blob-2 {
-  width: 420px;
-  height: 420px;
-  background: radial-gradient(circle, rgba(10, 36, 114, 0.1), transparent 70%);
-  bottom: -100px;
-  left: -80px;
-  filter: blur(64px);
-  animation: orbFloat 14s ease-in-out infinite reverse;
-}
-
-.hero-blob-3 {
-  width: 280px;
-  height: 280px;
-  background: radial-gradient(
-    circle,
-    rgba(166, 225, 250, 0.22),
-    transparent 70%
-  );
-  top: 45%;
-  left: 38%;
-  filter: blur(48px);
-  animation: blobFloat3 18s ease-in-out infinite;
-}
-
-.hero-blob-4 {
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(
-    circle,
-    rgba(14, 107, 168, 0.09),
-    transparent 70%
-  );
-  top: 20%;
-  left: 15%;
-  filter: blur(40px);
-  animation: blobFloat2 12s ease-in-out infinite;
+  z-index: 1;
 }
 
 /* ── Layout ── */
@@ -103,7 +44,7 @@
   align-items: center;
   gap: 48px;
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 1080px;
   margin: 0 auto;
 }
@@ -120,7 +61,10 @@
   flex-wrap: wrap;
 }
 
-/* ── Availability badge ── */
+/* ── Availability badge ─────────────────────────────────────
+   NOTE: No animation here — GSAP controls opacity/y.
+   CSS only sets appearance (shape, color, font).
+──────────────────────────────────────────────────────────── */
 .hero-availability {
   display: inline-flex;
   align-items: center;
@@ -136,7 +80,6 @@
   letter-spacing: 0.3px;
   margin-bottom: 24px;
   width: fit-content;
-  animation: badgePop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
   cursor: default;
 }
 
@@ -166,16 +109,6 @@
   animation: gradientShift 8s ease infinite;
 }
 
-.greeting-nickname {
-  font-size: 26px;
-  line-height: 1.4;
-  font-family: "Space Grotesk", "Google Sans Bold Italic", sans-serif;
-  font-weight: 500;
-  font-style: italic;
-  margin-top: 4px;
-  opacity: 0.75;
-}
-
 /* ── Typewriter tagline ── */
 .greeting-tagline {
   display: inline-flex;
@@ -202,7 +135,6 @@
   vertical-align: text-bottom;
   margin-left: 2px;
   border-radius: 1px;
-  opacity: 1;
 }
 
 .typer-cursor--blink {
@@ -220,7 +152,9 @@
   max-width: 560px;
 }
 
-/* ── Stats row ── */
+/* ── Stats row ──────────────────────────────────────────────
+   NOTE: No CSS animation — GSAP controls opacity/y.
+──────────────────────────────────────────────────────────── */
 .hero-stats {
   display: flex;
   gap: 0;
@@ -234,7 +168,6 @@
   -webkit-backdrop-filter: blur(12px);
   width: fit-content;
   box-shadow: 0 4px 20px rgba(14, 107, 168, 0.06), 0 1px 4px rgba(0, 0, 0, 0.03);
-  animation: fadeInUp 0.7s ease 0.3s both;
 }
 
 .hero-stat {
@@ -266,7 +199,6 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: counterReveal 0.4s ease both;
 }
 
 .hero-stat-label {
@@ -279,7 +211,7 @@
   white-space: nowrap;
 }
 
-/* ── Image side ── */
+/* ── Illustration ── */
 .greeting-image-div > * {
   max-width: 100%;
   height: auto;
@@ -329,10 +261,6 @@
     text-align: center;
     letter-spacing: -1.5px;
     margin-top: 0;
-  }
-  .greeting-nickname {
-    font-size: 1.2rem;
-    text-align: center;
   }
   .greeting-tagline {
     font-size: 0.85rem;

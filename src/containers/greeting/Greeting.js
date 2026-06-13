@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import "./Greeting.css";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
 import Button from "../../components/button/Button";
 import { greeting } from "../../portfolio";
-import { Fade } from "react-reveal";
 import FeelingProud from "./FeelingProud";
+import HeroThreeBackground from "../../components/threeBackground/HeroThreeBackground";
 
+/* ─── Animated counter hook ─────────────────────────────── */
 const HERO_STATS = [
   { num: 4, suffix: "+", label: "Years at TCS" },
   { num: 3, suffix: "", label: "Awards Won" },
@@ -17,10 +19,10 @@ function useCounter(target, duration, active) {
   const [value, setValue] = useState(0);
   useEffect(() => {
     if (!active) return;
-    let start = null;
+    let startTs = null;
     const step = (ts) => {
-      if (!start) start = ts;
-      const progress = Math.min((ts - start) / duration, 1);
+      if (!startTs) startTs = ts;
+      const progress = Math.min((ts - startTs) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
       setValue(Math.floor(eased * target));
       if (progress < 1) requestAnimationFrame(step);
@@ -45,7 +47,8 @@ function AnimatedStat({ num, suffix, label, theme, active }) {
   );
 }
 
-function useTypewriter(text, speed = 48, delay = 900) {
+/* ─── Typewriter hook ────────────────────────────────────── */
+function useTypewriter(text, speed = 46, delay = 1400) {
   const [displayed, setDisplayed] = useState("");
   const [done, setDone] = useState(false);
   useEffect(() => {
@@ -69,118 +72,184 @@ function useTypewriter(text, speed = 48, delay = 900) {
   return { displayed, done };
 }
 
+/* ─── Component ──────────────────────────────────────────── */
 export default function Greeting(props) {
   const theme = props.theme;
   const [statsActive, setStatsActive] = useState(false);
+
+  /* GSAP refs */
+  const sectionRef = useRef(null);
+  const badgeRef = useRef(null);
+  const nameRef = useRef(null);
+  const taglineRef = useRef(null);
+  const bioRef = useRef(null);
   const statsRef = useRef(null);
+  const socialRef = useRef(null);
+  const ctaRef = useRef(null);
+  const imageRef = useRef(null);
+
   const { displayed: typedTagline, done: taglineDone } = useTypewriter(
     greeting.tagline || "",
     46,
-    1000
+    1400
   );
 
+  /* ── GSAP entrance timeline ─────────────────────────── */
   useEffect(() => {
-    const el = statsRef.current;
-    if (!el) return;
+    const targets = [
+      badgeRef.current,
+      nameRef.current,
+      taglineRef.current,
+      bioRef.current,
+      statsRef.current,
+      socialRef.current,
+      ctaRef.current,
+    ].filter(Boolean);
+
+    gsap.set(targets, { opacity: 0, y: 36 });
+    if (imageRef.current) gsap.set(imageRef.current, { opacity: 0, x: 70 });
+
+    const tl = gsap.timeline({ paused: true });
+
+    tl.to(badgeRef.current, {
+      opacity: 1,
+      y: 0,
+      duration: 0.55,
+      ease: "power2.out",
+    })
+      .to(
+        nameRef.current,
+        { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" },
+        "-=0.28"
+      )
+      .to(
+        taglineRef.current,
+        { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
+        "-=0.3"
+      )
+      .to(
+        bioRef.current,
+        { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
+        "-=0.25"
+      )
+      .to(
+        statsRef.current,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          ease: "power2.out",
+          onStart: () => setStatsActive(true),
+        },
+        "-=0.2"
+      )
+      .to(
+        socialRef.current,
+        { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" },
+        "-=0.2"
+      )
+      .to(
+        ctaRef.current,
+        { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" },
+        "-=0.18"
+      )
+      .to(
+        imageRef.current,
+        { opacity: 1, x: 0, duration: 0.75, ease: "power3.out" },
+        "<-0.7"
+      );
+
     const obs = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) setStatsActive(true);
+        if (entry.isIntersecting) {
+          tl.play();
+          obs.disconnect();
+        }
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
-    obs.observe(el);
-    return () => obs.disconnect();
+    if (sectionRef.current) obs.observe(sectionRef.current);
+
+    return () => {
+      obs.disconnect();
+      tl.kill();
+    };
   }, []);
 
   return (
-    <div className="greet-main" id="greeting">
-      {/* Animated mesh grid overlay */}
+    <div className="greet-main" id="greeting" ref={sectionRef}>
+      {/* WebGL bokeh particle background */}
+      <HeroThreeBackground />
+
+      {/* Subtle mesh grid overlay */}
       <div className="hero-mesh" aria-hidden="true" />
 
-      {/* Animated background blobs */}
-      <div className="hero-blob hero-blob-1" aria-hidden="true" />
-      <div className="hero-blob hero-blob-2" aria-hidden="true" />
-      <div className="hero-blob hero-blob-3" aria-hidden="true" />
-      <div className="hero-blob hero-blob-4" aria-hidden="true" />
-
-      <Fade bottom duration={900} distance="40px">
-        <div className="greeting-main">
-          {/* ── Left: Text ── */}
-          <div className="greeting-text-div">
-            <div>
-              {/* Availability badge */}
-              <div className="hero-availability">
-                <span className="hero-avail-dot" />
-                Available for new opportunities
-              </div>
-
-              {/* Name — gradient animated */}
-              <h1 className="greeting-text">{greeting.title}</h1>
-
-              {greeting.nickname && (
-                <h2 className="greeting-nickname" style={{ color: theme.text }}>
-                  ({greeting.nickname})
-                </h2>
-              )}
-
-              {/* Typewriter tagline */}
-              {greeting.tagline && (
-                <p
-                  className="greeting-tagline"
-                  style={{ color: theme.imageHighlight }}
-                >
-                  {typedTagline}
-                  <span
-                    className={`typer-cursor${
-                      taglineDone ? " typer-cursor--blink" : ""
-                    }`}
-                    aria-hidden="true"
-                  />
-                </p>
-              )}
-
-              {/* Bio */}
-              <p
-                className="greeting-text-p"
-                style={{ color: theme.secondaryText }}
-              >
-                {greeting.subTitle}
-              </p>
-
-              {/* Animated stats */}
-              <div className="hero-stats" ref={statsRef}>
-                {HERO_STATS.map((s) => (
-                  <AnimatedStat
-                    key={s.label}
-                    num={s.num}
-                    suffix={s.suffix}
-                    label={s.label}
-                    theme={theme}
-                    active={statsActive}
-                  />
-                ))}
-              </div>
-
-              <SocialMedia theme={theme} />
-
-              <div className="portfolio-repo-btn-div">
-                <Button
-                  text="⭐ Star Me On Github"
-                  newTab={true}
-                  href={greeting.portfolio_repository}
-                  theme={theme}
-                  className="portfolio-repo-btn"
-                />
-              </div>
-            </div>
+      <div className="greeting-main">
+        {/* ── Left: Text ── */}
+        <div className="greeting-text-div">
+          <div ref={badgeRef} className="hero-availability">
+            <span className="hero-avail-dot" />
+            Available for new opportunities
           </div>
 
-          {/* ── Right: Illustration ── */}
-          <div className="greeting-image-div">
-            <FeelingProud theme={theme} />
+          <h1 ref={nameRef} className="greeting-text">
+            {greeting.title}
+          </h1>
+
+          {greeting.tagline && (
+            <p
+              ref={taglineRef}
+              className="greeting-tagline"
+              style={{ color: theme.imageHighlight }}
+            >
+              {typedTagline}
+              <span
+                className={`typer-cursor${
+                  taglineDone ? " typer-cursor--blink" : ""
+                }`}
+                aria-hidden="true"
+              />
+            </p>
+          )}
+
+          <p
+            ref={bioRef}
+            className="greeting-text-p"
+            style={{ color: theme.secondaryText }}
+          >
+            {greeting.subTitle}
+          </p>
+
+          <div className="hero-stats" ref={statsRef}>
+            {HERO_STATS.map((s) => (
+              <AnimatedStat
+                key={s.label}
+                {...s}
+                theme={theme}
+                active={statsActive}
+              />
+            ))}
+          </div>
+
+          <div ref={socialRef}>
+            <SocialMedia theme={theme} />
+          </div>
+
+          <div ref={ctaRef} className="portfolio-repo-btn-div">
+            <Button
+              text="⭐ Star Me On Github"
+              newTab={true}
+              href={greeting.portfolio_repository}
+              theme={theme}
+            />
           </div>
         </div>
-      </Fade>
+
+        {/* ── Right: Illustration ── */}
+        <div className="greeting-image-div" ref={imageRef}>
+          <FeelingProud theme={theme} />
+        </div>
+      </div>
     </div>
   );
 }
